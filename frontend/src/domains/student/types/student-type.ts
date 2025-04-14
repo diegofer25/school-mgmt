@@ -26,7 +26,7 @@ export type StudentFilterState = {
   class: string;
   section: string;
   name: string;
-  roll: string;
+  roll: string | number;
 };
 
 export type StudentFilterActions =
