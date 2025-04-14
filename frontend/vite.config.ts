@@ -19,6 +19,6 @@ export default ({ mode }: { mode: string }) => {
       proxy: {
         '/api/v1': 'http://localhost:5007'
       }
-    },
+    }
   });
 };
