@@ -14,7 +14,11 @@ export default ({ mode }: { mode: string }) => {
       }
     },
     server: {
-      open: '/app'
-    }
+      open: '/app',
+      // proxy /api/v1 to http://localhost:5007/api/v1
+      proxy: {
+        '/api/v1': 'http://localhost:5007'
+      }
+    },
   });
 };
