@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: school_mgmt
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ../seed_db:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+  node:
+    image: node:22-alpine
+    volumes:
+      - ..:/workspace
+    working_dir: /workspace
+    command: sh -c "while sleep 1000; do :; done"
+    depends_on:
+      - postgres
+
+volumes:
+  db-data:

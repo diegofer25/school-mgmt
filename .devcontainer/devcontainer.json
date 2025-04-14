@@ -1,0 +1,16 @@
+{
+    "name": "node22-dev-env",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "node",
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [5007, 5173],
+    "mounts": [
+      "source=${localWorkspaceFolder}/seed_db,target=/docker-entrypoint-initdb.d,type=bind"
+    ],
+    "postCreateCommand": "cd backend && npm install && cd ../frontend && npm install && PGPASSWORD=pass psql -h postgres -U user -d school_mgmt -f /docker-entrypoint-initdb.d/tables.sql && PGPASSWORD=pass psql -h postgres -U user -d school_mgmt -f /docker-entrypoint-initdb.d/seed.sql",
+    "remoteEnv": {
+      "DATABASE_URL": "postgresql://user:pass@postgres:5432/school_mgmt",
+      "PGPASSWORD": "pass"
+    }
+  }
+  
