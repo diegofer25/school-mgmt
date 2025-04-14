@@ -15,7 +15,7 @@ services:
       - 5432:5432
 
   node:
-    image: node:22-alpine
+    image: node:20-alpine
     volumes:
       - ..:/workspace
     working_dir: /workspace

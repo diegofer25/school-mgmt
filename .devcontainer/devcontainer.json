@@ -1,5 +1,5 @@
 {
-    "name": "node22-dev-env",
+    "name": "node20-dev-env",
     "dockerComposeFile": "docker-compose.yml",
     "service": "node",
     "workspaceFolder": "/workspace",
